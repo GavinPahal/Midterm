@@ -2,34 +2,29 @@
 import { useState } from "react";
 import Header from "./components/molecules/Header";
 import PictureDisplay from "./components/molecules/PictureDisplay";
+import "./styles/style.css"; // Import the CSS file
 
 export default function Page() {
   const [dataContents, setDataContents] = useState([]);
-  const [error, setError] = useState("");
 
   async function fetchData() {
     const API_URL = "https://rickandmortyapi.com/api/character";
-    
-    const response = await fetch(API_URL);
-    if (!response.ok) {
-      setError("Failed to fetch data");
-      return;
+    try {
+      const response = await fetch(API_URL);
+      const data = await response.json();
+      setDataContents(data.results.slice(0, 5)); // Display only 5 results
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
-    
-    const data = await response.json();
-    setDataContents(data.results.slice(0, 5));
-    setError("");
   }
 
   function clearData() {
     setDataContents([]);
-    setError("");
   }
 
   return (
-    <div>
+    <div className="container">
       <Header fetchData={fetchData} clearData={clearData} />
-      {error && <p>{error}</p>}
       <PictureDisplay dataContents={dataContents} />
     </div>
   );

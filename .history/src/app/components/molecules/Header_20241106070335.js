@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Header({ fetchData, clearData }) {
   return (
     <header className="header">
