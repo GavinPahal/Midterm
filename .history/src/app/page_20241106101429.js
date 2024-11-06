@@ -12,7 +12,7 @@ export default function Page() {
       setDataContents([]);
       setError("");
     } else {
-      const API_URL = "https://rickandmortyapi.com/api/character?limit=10"; // Fetch from page 1
+      const API_URL = "https://rickandmortyapi.com/api/character";
       const response = await fetch(API_URL);
 
       if (!response.ok) {
@@ -21,7 +21,7 @@ export default function Page() {
       }
 
       const data = await response.json();
-      setDataContents(data.results.slice(0, 5)); // Limit results to 10
+      setDataContents(data.results.slice(0, 5));
       setError("");
     }
   }
