@@ -51,32 +51,23 @@ button {
   color: red;
 }
 
-/* Default (small screens) */
-.placeholder-image {
-  width: 8rem; /* 32px */
-  height: 8rem; /* 32px */
-  border-radius: 0; /* Square image */
-}
+import React from "react";
+import "./styles.css"; // Import your CSS file
 
-/* Default (small screens) */
-.placeholder-image {
-  width: 8rem; /* 32px */
-  height: 8rem; /* 32px */
-  border-radius: 0; /* Square image */
-}
-
-/* Medium screens (min-width: 224px) */
-@media (min-width: 14rem) {
-  .placeholder-image {
-    width: 10rem; /* 40px */
-    height: 10rem; /* 40px */
-  }
-}
-
-/* Large screens (min-width: 16rem) */
-@media (min-width: 16rem) {
-  .placeholder-image {
-    width: 12rem; /* 48px */
-    height: 12rem; /* 48px */
-  }
+export default function Header({ toggleData, isDataDisplayed }) {
+  return (
+    <div className="header-container text-center">
+      <h2>Rick and Morty Code</h2>
+      <div className="button-container flex flex-col items-center">
+        <button onClick={toggleData} className="mb-4">
+          {isDataDisplayed ? "Clear Data" : "Fetch Data"}
+        </button>
+        <img
+          src="https://via.placeholder.com/100"
+          alt="Placeholder"
+          className="placeholder-image" // Use the class defined in CSS
+        />
+      </div>
+    </div>
+  );
 }
