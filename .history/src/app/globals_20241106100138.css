@@ -9,7 +9,20 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  font-family: Arial, sans-serif;
   text-align: center;
+}
+
+/* Header and button container styling */
+.header-container {
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 /* Button styling */
@@ -17,21 +30,25 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  margin: 10px;
 }
 
 /* Placeholder image styling */
 .placeholder-image {
   width: 50px;
   height: 50px;
+  object-fit: cover;
   border-radius: 50%;
-  margin-right: 10px;
 }
 
-/* Dropdown display */
+/* API results dropdown */
 .dropdown {
-  margin-top: 20px;
+  display: none;
+}
+
+.dropdown.show {
+  display: block;
 }
 
 .dropdown-item {
@@ -41,35 +58,13 @@ button {
 }
 
 .dropdown-item img {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   margin-right: 10px;
 }
 
-/* Error message */
+/* Error message styling */
 .error-message {
   color: red;
-}
-
-/* Media Queries */
-
-/* Small screens */
-@media (max-width: 600px) {
-  .dropdown-item img {
-    width: 30px;
-    height: 30px;
-  }
-}
-
-/* Medium screens */
-@media (max-width: 900px) {
-  button {
-    font-size: 14px;
-  }
-
-  .dropdown-item img {
-    width: 35px;
-    height: 35px;
-  }
 }
