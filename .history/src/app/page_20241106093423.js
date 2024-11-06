@@ -12,22 +12,20 @@ export default function Page() {
       setDataContents([]);
       setError("");
     } else {
-      const API_URL = "https://rickandmortyapi.com/api/character";
-      const response = await fetch(API_URL);
+      const response = await fetch("https://rickandmortyapi.com/api/character");
 
-      if (!response.ok) {
+      if (response.ok) {
+        const data = await response.json();
+        setDataContents(data.results.slice(0, 5));
+        setError("");
+      } else {
         setError("Failed to fetch data");
-        return;
       }
-
-      const data = await response.json();
-      setDataContents(data.results.slice(0, 5));
-      setError("");
     }
   }
 
   return (
-    <div className="page-container" style={{ textAlign: "center", padding: "20px" }}>
+    <div style={{ textAlign: "center", padding: "20px" }}>
       <Header toggleData={toggleData} isDataDisplayed={dataContents.length > 0} />
       {error && <p style={{ color: "red" }}>{error}</p>}
       <PictureDisplay dataContents={dataContents} />
