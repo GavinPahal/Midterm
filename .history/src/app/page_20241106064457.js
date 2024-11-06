@@ -8,13 +8,9 @@ export default function Page() {
 
   async function fetchData() {
     const API_URL = "https://rickandmortyapi.com/api/character";
-    try {
-      const response = await fetch(API_URL);
-      const data = await response.json();
-      setDataContents(data.results.slice(0, 5)); // Display only 5 results
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+    const response = await fetch(API_URL);
+    const data = await response.json();
+    setDataContents(data.results.slice(0, 5)); // Display only 5 results
   }
 
   function clearData() {
