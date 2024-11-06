@@ -12,7 +12,7 @@ export default function Page() {
       setDataContents([]);
       setError("");
     } else {
-      // Rick and Morty API URL fetching character data
+      // Rick and Morty API URL (fetching character data)
       const API_URL = "https://rickandmortyapi.com/api/character";
       const response = await fetch(API_URL);
 

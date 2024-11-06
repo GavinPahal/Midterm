@@ -12,7 +12,7 @@ export default function Page() {
       setDataContents([]);
       setError("");
     } else {
-      // Rick and Morty API URL fetching character data
+      // Rick and Morty API URL (fetching character data)
       const API_URL = "https://rickandmortyapi.com/api/character";
       const response = await fetch(API_URL);
 
@@ -22,7 +22,7 @@ export default function Page() {
       }
 
       const data = await response.json();
-      setDataContents(data.results.slice(0, 5)); // Limit to 10 characters
+      setDataContents(data.results.slice(0, 10)); // Limit to 10 characters
       setError("");
     }
   }
